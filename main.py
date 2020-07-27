@@ -24,8 +24,8 @@ async def on_message(message):
     else:
         member = message.author.name
         messageContent = message.content
-        str= member + ": " + messageContent
-        sphd.write_string()
+        str = member + ": " + messageContent
+        sphd.write_string(str)
         sphd.show()
         sphd.scroll(1)
         time.sleep(0.05)
