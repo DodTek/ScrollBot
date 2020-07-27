@@ -1,5 +1,6 @@
 import discord
 import json
+import scrollphathd as sphd
 
 bot = discord.Client()
 
@@ -20,8 +21,10 @@ async def on_ready():
 async def on_message(message):
     if message.author == bot.user:
         return
-
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    else:
+        sphd.write_string(message.author + ": " + message.content)
+        sphd.show()
+        sphd.scroll(1)
+        time.sleep(0.05)
 
 bot.run(TOKEN)
