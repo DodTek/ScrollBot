@@ -1,12 +1,27 @@
 import discord
+import json
+
+bot = discord.Client()
+
+with open("config.json", "r") as configjsonFile:
+    configData = json.load(configjsonFile)
+    TOKEN = configData["token"]
 
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
+@bot.event
+async def on_ready():
+    print('Logged in as {0.user}'.format(bot))
+    #List servers the bot is connected to
+    print('Servers:')
+    for guild in bot.guilds:
+        print(guild.name)
 
-    async def on_message(self, message):
-        print('Message from {0.author}: {0.content}'.format(message))
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
 
-client = MyClient()
-client.run('my token goes here')
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+
+bot.run(TOKEN)
