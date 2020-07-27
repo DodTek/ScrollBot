@@ -27,6 +27,9 @@ async def on_message(message):
         messageContent = message.content
         str = member + ": " + messageContent
         sphd.write_string(str)
-        sphd.show()
+        for i in str:
+            sphd.show()
+            sphd.scroll(1)
+            time.sleep(0.05)
 
 bot.run(TOKEN)
