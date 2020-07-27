@@ -22,7 +22,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
     else:
-        member = message.author
+        member = message.author.name
         messageContent = message.content
         str= member + ": " + messageContent
         sphd.write_string()
