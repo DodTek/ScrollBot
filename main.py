@@ -1,6 +1,7 @@
 import discord
 import json
 import scrollphathd as sphd
+import time
 
 bot = discord.Client()
 
