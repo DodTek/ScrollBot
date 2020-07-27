@@ -29,8 +29,4 @@ async def on_message(message):
         sphd.write_string(str)
         sphd.show()
 
-while True:
-    sphd.scroll(1)
-    time.sleep(0.05)
-
 bot.run(TOKEN)
