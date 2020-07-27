@@ -22,7 +22,8 @@ async def on_message(message):
     if message.author == bot.user:
         return
     else:
-        sphd.write_string(message.author + ": " + message.content)
+        messageContent = message.author + ": " + message.content
+        sphd.write_string()
         sphd.show()
         sphd.scroll(1)
         time.sleep(0.05)
